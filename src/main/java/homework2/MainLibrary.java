@@ -23,14 +23,12 @@ public class MainLibrary {
         album1.setPaperQuality("Tick paper");
         album1.setNrPage(150);
         album1.setBookType("Art Album");
-        album1.getPaperQuality();
 
         ArtAlbum album2 = new ArtAlbum();
         album2.setBookName("Gothic");
         album2.setPaperQuality("Shiny paper");
         album2.setNrPage(88);
         album2.setBookType("Art Album");
-        album2.getPaperQuality();
 
         //create Books[] array object and library object
         Books[] newBookArray = new Books[0];
