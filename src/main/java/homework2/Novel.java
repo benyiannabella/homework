@@ -1,8 +1,8 @@
 package homework2;
 
-// subclass of Books class
-public class Novels extends Books {
-    private String novelType; //Novels attribute
+// subclass of Book class
+public class Novel extends Book {
+    private String novelType; //Novel attribute
 
     public String getNovelType() {
         return novelType;

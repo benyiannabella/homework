@@ -1,9 +1,9 @@
 package homework2;
 
-public class Books {
-   private String bookName;//Books attribute
-   private int nrPage; //Books attribute
-   private String bookType; //Books attribute
+public class Book {
+   private String bookName;//Book attribute
+   private int nrPage; //Book attribute
+   private String bookType; //Book attribute
 
 
     public String getBookType() {

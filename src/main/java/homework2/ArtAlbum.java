@@ -1,7 +1,7 @@
 package homework2;
 
-//subclass of Books class
-public class ArtAlbum extends Books {
+//subclass of Book class
+public class ArtAlbum extends Book {
     private String paperQuality; ////ArtAlbum attribute
 
     public String getPaperQuality() {
