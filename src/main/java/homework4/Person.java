@@ -6,6 +6,7 @@ public class Person {
     private String personName;
     private int personAge;
 
+    //constructor
     public Person(String personName, int personAge) {
         this.personName = personName;
         this.personAge = personAge;
@@ -19,6 +20,7 @@ public class Person {
         return personAge;
     }
 
+    //override equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -28,11 +30,13 @@ public class Person {
                 personName.equals(person.personName);
     }
 
+    //override hashcode
     @Override
     public int hashCode() {
         return Objects.hash(personName, personAge);
     }
 
+    //method to add person to HashMap and print the list of persons with their hobbies and hobby addresses
     public void addPerson(Person newPerson, Hobby hobby, Address address) {
         List<Address> addresses = new LinkedList<>();
         addresses.add(new Address(address.getAddress()));
