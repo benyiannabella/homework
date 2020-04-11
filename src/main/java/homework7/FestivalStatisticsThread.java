@@ -1,49 +1,41 @@
 package homework7;
 
+import lombok.AllArgsConstructor;
+
 import java.util.LinkedList;
 
-public class FestivalStatisticsThread implements Runnable {
-    private FestivalGate gate;
-    LinkedList<String> gateAttendees;
+@AllArgsConstructor
+//class for creating statistic thread;
+public class FestivalStatisticsThread extends Thread {
 
-    public FestivalStatisticsThread(FestivalGate gate, LinkedList<String> gateAttendees) {
-        this.gate = gate;
-        this.gateAttendees = gateAttendees;
-    }
+    private FestivalGate festivalGate;
+    private LinkedList<String> gateAttendees = new LinkedList<>();
 
+    //override run method of the Thread class;
+    //continuously gather data from gate and sleep 5 seconds after each run;
     @Override
     public void run() {
-        sleepStatsThread();
-//        getGateData();
-        synchronized (gateAttendees) {
-            if (!gateAttendees.isEmpty()) {
-                for (String attendee : gateAttendees) {
-                    System.out.println(attendee);
-                }
-            } else {
-                System.out.println("No data at the gate");
+        while (true) {
+            if (gateAttendees.size() != 0) {
+                long entered = gateAttendees.size();
+                System.out.println(entered + " people entered to the festival.");
+                long vip = gateAttendees.stream().filter(x -> x.equals(TicketType.FULL_VIP.toString())).count();
+                System.out.println(vip + " people have " + TicketType.FULL_VIP.toString() + " ticket.");
+                long full = gateAttendees.stream().filter(x -> x.equals("FULL")).count();
+                System.out.println(full + " people have " + TicketType.FULL.toString() + " ticket.");
+                long oneVIP = gateAttendees.stream().filter(x -> x.equals(TicketType.ONE_DAY_VIP.toString())).count();
+                System.out.println(oneVIP + " people have " + TicketType.ONE_DAY_VIP.toString() + " ticket.");
+                long oneDay = gateAttendees.stream().filter(x -> x.equals(TicketType.ONE_DAY.toString())).count();
+                System.out.println(oneDay + " people have " + TicketType.ONE_DAY.toString() + " ticket.");
+                long free = gateAttendees.stream().filter(x -> x.equals(TicketType.FREE_PASS.toString())).count();
+                System.out.println(free + " people have " + TicketType.FREE_PASS.toString() + " ticket.");
+            }
+
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
-
-    public static void sleepStatsThread() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-//    public static void getGateData() {
-//
-//        synchronized (gateAttendees) {
-//            if (!attendees.isEmpty()) {
-//                for (String attendee : attendees) {
-//                    System.out.println(attendee);
-//                }
-//            } else {
-//                System.out.println("No data at the gate");
-//            }
-//        }
-//    }
 }
