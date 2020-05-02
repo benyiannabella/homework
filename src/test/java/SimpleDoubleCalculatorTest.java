@@ -1,3 +1,5 @@
+import homework8_genericExceptions.DivisionByZeroException;
+import homework8_genericExceptions.SimpleDoubleCalculator;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.junit.Test;

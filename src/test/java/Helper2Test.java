@@ -1,8 +1,9 @@
+import homework8_genericExceptions.Helper2;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Helper2Test {
     Helper2 calculator = new Helper2();

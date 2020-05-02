@@ -1,8 +1,11 @@
+import homework8_genericExceptions.Helper;
+import homework8_genericExceptions.UnrecognisedCharacterException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HelperTest {
 

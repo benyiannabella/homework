@@ -1,3 +1,5 @@
+package homework8_genericExceptions;
+
 public interface Operations<T extends Number> {
 
     T add(T num1, T num2);

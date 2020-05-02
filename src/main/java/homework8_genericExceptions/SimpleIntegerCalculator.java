@@ -1,3 +1,5 @@
+package homework8_genericExceptions;
+
 import org.apache.log4j.Logger;
 
 public class SimpleIntegerCalculator implements Operations{
