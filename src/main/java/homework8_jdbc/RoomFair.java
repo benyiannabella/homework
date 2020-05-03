@@ -1,3 +1,5 @@
+package homework8_jdbc;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,14 +1,13 @@
+package homework8_jdbc;
+
+import org.apache.log4j.BasicConfigurator;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DBConnection {
     private Statement statement;
-    Logger logger = Logger.getLogger(DBConnection.class.getName());
+    final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DBConnection.class);
 
     {
         try {
@@ -21,11 +20,11 @@ public class DBConnection {
     // Create a new connection to the PostgreSQL database;
     public Connection getConnection() {
         Connection connection = null;
-
+        BasicConfigurator.configure();
         try {
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/booking",
                     "postgres", "postgres");
-            logger.log(Level.INFO, "The connection to the PostgreSQL DataBase was successful");
+            //logger.debug("The connection to the PostgreSQL DataBase was successful");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -136,53 +135,52 @@ public class DBConnection {
         return id;
     }
 
-    public void printValuePerRoom(String s) throws SQLException {
+    public void printValuePerRoom(String s, Map<String, Double> map) throws SQLException {
         ResultSet rs = statement.executeQuery(s);
         Accommodation accommodation = new Accommodation();
         RoomFair roomFair = new RoomFair();
-
         while (rs.next()) {
             accommodation.setType(rs.getString("type"));
             roomFair.setValue(rs.getDouble("value"));
-
-           logger.log(Level.INFO,"Accommodation type: " + accommodation.getType() + ", Value: "
-                    + roomFair.getValue());
+            map.put(accommodation.getType(), roomFair.getValue());
+            logger.debug(" Accommodation type: " + accommodation.getType()
+                    + " , Value: " + roomFair.getValue());
         }
     }
 
-    /*
+    /**
      * I've created the database from pgAdmin4;
      * tables have been created with java, using the below methods;
      * database and table creation should be run only once;
      * so I've commented out the method calls;
 
 
-        try {
-            createDatabaseBooking(connection);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+     try {
+     createDatabaseBooking(connection);
+     } catch (SQLException throwables) {
+     throwables.printStackTrace();
+     }
 
-        call method to create accommodation table in DB;
-        try {
-            createTableAccommodation(connection);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+     call method to create accommodation table in DB;
+     try {
+     createTableAccommodation(connection);
+     } catch (SQLException throwables) {
+     throwables.printStackTrace();
+     }
 
-        call method to create room_fair table in DB
-        try {
-            createTableRoomFair(connection);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+     call method to create room_fair table in DB
+     try {
+     createTableRoomFair(connection);
+     } catch (SQLException throwables) {
+     throwables.printStackTrace();
+     }
 
-        call method tp create accommodation_to_room_fair_relation table in DB
-        try {
-            createTableRelation(connection);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+     call method tp create accommodation_to_room_fair_relation table in DB
+     try {
+     createTableRelation(connection);
+     } catch (SQLException throwables) {
+     throwables.printStackTrace();
+     }
 
 
      */
