@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        .monospace {
+        font-family: Lucida Console, Courier, monospace;
+        }
+       h1 {
+       display: block;
+       font-size: 4em;
+       margin-top: 0.67em;
+       margin-bottom: 0.67em;
+       font-weight: bold;
+       color:#4B4F69;
+       text-align:center;
+       class:Courier;
+        }
+        .div1 {border: 3px outset green; background-color: #43e8d8;
+        text-align: center; height:150px;
+        }
+        .div2 {text-align: left; border: 1px solid black; background-color:#F8FDAD;
+          height:400px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"><h1>User Management System</h1></div>
+
+<form action="signup" method="get">
+    <div class = "div2"><h2>To Sign Up, please fill your details in the below text fields: </h2>
+    <table>
+        <tr>
+            <td>UserName:</td>
+            <td><input type="text" name="name" required></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" required minlength="6" maxlength="12"></td>
+        </tr>
+        <tr>
+            <td>Email Address:</td>
+            <td><input type="email" name="email" required
+                       placeholder="username@beststartupever.com"
+                       pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"></td>
+        </tr>
+        <tr>
+            <td>Phone Number:</td>
+            <td><input type="number" name="phonenumber" required maxlength="13"></td>
+        </tr>
+
+        <tr>
+            <td>Birthday:</td>
+            <td><input type="date" name="birthday" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                    <input type="submit" class="button_active" value="SUBMIT">
+            </td>
+        </tr>
+    </table>
+    </div>
+
+
+</form>
+</body>
+</html>

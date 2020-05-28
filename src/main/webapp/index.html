@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        .monospace {
+        font-family: Lucida Console, Courier, monospace;
+        }
+       h1 {
+       display: block;
+       font-size: 4em;
+       margin-top: 0.67em;
+       margin-bottom: 0.67em;
+       font-weight: bold;
+       color:#4B4F69;
+       text-align:center;
+       class:Courier;
+       }
+        .div1 {border: 3px outset green; background-color: #43e8d8;
+        text-align: center; height:150px;
+        }
+        .div2 {text-align: left; border: 1px solid black;
+          background-color: lightblue;height:175px;
+        }
+        .div3 {text-align: left; border: 1px solid black;
+         height:175px; background-color:#F8FDAD
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="div1"><h1>User Management System</h1></div>
+    <form action="login" method="get">
+        <div class="div2">
+    <table width= 400px>
+        <tr><h3>Type your credentials to log in (both fields mandatory!)</h3></tr>
+        <tr>
+            <td>User Name:</td>
+            <td><input type="text" name="name" required></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" class="button_active" value="Log in">
+            </td>
+        </tr>
+    </table>
+    </div>
+        <div class="div3">
+        <h3>You can register to our site by clicking on the <a href="./sign_up.html">SIGN UP</a> link!</h3>
+    </div>
+</form>
+
+</body>
+</html>
